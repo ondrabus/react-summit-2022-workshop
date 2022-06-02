@@ -1,18 +1,20 @@
-import { IContentItem } from "@kentico/kontent-delivery"
 import { GetStaticProps } from "next"
 import Nav from "../components/Nav"
+import { LandingPageModel } from "../models/LandingPageModel"
+import { projectModel } from "../models/_project"
 import KontentService from "../services/KontentService"
 
 interface Props {
-  pages: IContentItem[]
+  pages: LandingPageModel[]
 }
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const page = await KontentService.Instance().deliveryClient
-    .items()
-    .type('landing_page')
+    .items<LandingPageModel>()
+    .type(projectModel.contentTypes.landing_page.codename)
     .elementsParameter([
-      'title', 'url_slug'
+      projectModel.contentTypes.landing_page.elements.title.codename,
+      projectModel.contentTypes.landing_page.elements.url_slug.codename
     ])
     .toPromise()
 

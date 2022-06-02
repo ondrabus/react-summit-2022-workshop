@@ -1,6 +1,7 @@
 import React from "react"
+import { ComponentHeroModel } from "../models/ComponentHeroModel"
 
-const ComponentHero = ({ elements, system }) => {
+const ComponentHero: React.FC<ComponentHeroModel> = ({ elements, system }) => {
     
     return (
     <>

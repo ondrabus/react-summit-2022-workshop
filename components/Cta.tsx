@@ -1,6 +1,7 @@
 import React from "react"
+import { ComponentCtaModel } from "../models/ComponentCtaModel"
 
-const ComponentCta = ({ elements, system }) => {
+const ComponentCta: React.FC<ComponentCtaModel> = ({ elements, system }) => {
     
     return (
     <>

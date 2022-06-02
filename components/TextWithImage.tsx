@@ -1,8 +1,9 @@
 import React from "react"
 import { RichTextElement } from '@simply007org/kontent-react-components';
 import { Element } from 'domhandler';
+import { ComponentTextWithImageModel } from "../models/ComponentTextWithImageModel";
 
-const ComponentTextWithImage = ({ elements, system }) => {
+const ComponentTextWithImage: React.FC<ComponentTextWithImageModel> = ({ elements, system }) => {
     
     return (
     <section
@@ -29,8 +30,8 @@ const ComponentTextWithImage = ({ elements, system }) => {
                                 </a>
                             )},
                             resolveDomNode: ({ domNode }) => {
-                                if (domNode.name === 'p') {
-                                    domNode.attribs.className = "text-gray-600 mb-8"
+                                if (domNode.nodeType == 1 && (domNode as Element).name === 'p') {
+                                    (domNode as Element).attribs.className = "text-gray-600 mb-8"
                                     return null
                                 }
                             }

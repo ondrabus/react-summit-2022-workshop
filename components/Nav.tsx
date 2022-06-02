@@ -1,7 +1,13 @@
 import { IContentItem } from "@kentico/kontent-delivery"
 import React from "react"
+import { NavComponent } from "../types/NavComponent"
+import { ComponentCtaModel } from "../models/ComponentCtaModel"
 
-const ComponentNav = ({data}) => {
+interface IProps {
+    data: NavComponent[]
+}
+
+const ComponentNav: React.FC<IProps> = ({data}) => {
 
     return (
             <nav id="header" className="fixed w-full z-30 top-0 text-white">
